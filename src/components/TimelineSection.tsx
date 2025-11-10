@@ -9,28 +9,38 @@ interface TimelineEvent {
 
 const timelineEvents: TimelineEvent[] = [
   {
-    date: "Gennaio 2024",
+    date: "Ottobre 2022",
     title: "Il Primo Incontro",
     description: "Quel momento magico quando i nostri sguardi si sono incrociati per la prima volta.",
   },
   {
-    date: "Marzo 2024",
-    title: "La Prima Vacanza",
+    date: "Giugno 2023",
+    title: "L'inizio di tutto",
     description: "Avventure insieme, risate condivise e ricordi che durano per sempre.",
   },
   {
+    date: "Novembre 2023",
+    title: "L'ostacolo",
+    description: "Le sfide che ci hanno reso più forti.",
+  },
+  {
+    date: "Febbraio 2024",
+    title: "La wake up call",
+    description: "Il momento che ha cambiato tutto.",
+  },
+  {
     date: "Giugno 2024",
-    title: "Una Promessa Speciale",
+    title: "La dichiarazione",
     description: "Il giorno in cui abbiamo capito che eravamo fatti l'uno per l'altra.",
   },
   {
-    date: "Settembre 2024",
-    title: "Nuove Avventure",
+    date: "Novembre 2024",
+    title: "Finalmente insieme",
     description: "Costruendo insieme il nostro futuro, un passo alla volta.",
   },
   {
     date: "Oggi",
-    title: "Il Nostro Anniversario",
+    title: "Il nostro primo anniversario",
     description: "Celebrando un anno insieme e guardando avanti a tutti quelli che verranno.",
   },
 ];

@@ -29,7 +29,7 @@ const HeroSection = () => {
           </h1>
           
           <div className="text-2xl md:text-3xl text-accent font-semibold mb-8 tracking-wide">
-            365 Giorni di Amore
+            365 giorni di noi
           </div>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">

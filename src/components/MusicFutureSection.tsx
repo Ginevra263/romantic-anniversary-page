@@ -38,10 +38,10 @@ const MusicFutureSection = () => {
           <div className="text-center mb-12">
             <Music className="w-12 h-12 mx-auto mb-6 text-accent" />
             <h2 className="text-4xl md:text-6xl font-bold mb-4">
-              Musica e Prossime Avventure
+              La nostra canzone
             </h2>
             <p className="text-xl text-muted-foreground">
-              La nostra colonna sonora
+              la colonna sonora del nostro amore
             </p>
           </div>
 

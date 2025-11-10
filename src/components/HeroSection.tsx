@@ -33,7 +33,7 @@ const HeroSection = () => {
           </div>
           
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-            Un anno di sorrisi, avventure e momenti indimenticabili insieme
+            Un anno di amore, crescita e tante risate
           </p>
 
           <Button 

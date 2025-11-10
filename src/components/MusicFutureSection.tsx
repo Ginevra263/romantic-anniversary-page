@@ -46,14 +46,17 @@ const MusicFutureSection = () => {
           </div>
 
           <div className="bg-card p-8 rounded-2xl soft-shadow max-w-2xl mx-auto">
-            <div className="aspect-video rounded-lg overflow-hidden bg-muted/50 flex items-center justify-center">
-              <div className="text-center">
-                <Music className="w-16 h-16 mx-auto mb-4 text-primary/40" />
-                <p className="text-muted-foreground">
-                  Inserisci qui il link della tua canzone speciale<br />
-                  (Spotify o YouTube embed)
-                </p>
-              </div>
+            <div className="rounded-lg overflow-hidden">
+              <iframe
+                style={{ borderRadius: '12px' }}
+                src="https://open.spotify.com/embed/track/6qqrTXSdwiJaq8SO0X2lSe?utm_source=generator"
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allowFullScreen
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>

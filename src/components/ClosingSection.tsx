@@ -15,7 +15,7 @@ const ClosingSection = () => {
           <img 
             src={stitchLove} 
             alt="Me + You equals love with Stitch" 
-            className="w-64 h-auto mx-auto rounded-2xl soft-shadow"
+            className="w-96 h-auto mx-auto rounded-2xl soft-shadow"
           />
         </div>
 

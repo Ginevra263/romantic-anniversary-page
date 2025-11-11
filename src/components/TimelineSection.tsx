@@ -51,10 +51,10 @@ const TimelineSection = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20 animate-fade-in">
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
-            Le Nostre Fiamme
+            La nostra storia
           </h2>
           <p className="text-xl text-muted-foreground">
-            I Momenti Indelebili
+            Dal 2022 a oggi
           </p>
         </div>
 

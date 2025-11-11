@@ -1,6 +1,6 @@
 import { Heart, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import romanticHearts from "@/assets/romantic-hearts.jpg";
+import romanticGif from "@/assets/romantic-gif.gif";
 
 const ClosingSection = () => {
   const scrollToTop = () => {
@@ -13,7 +13,7 @@ const ClosingSection = () => {
         {/* Romantic Hearts GIF */}
         <div className="mb-8">
           <img 
-            src={romanticHearts} 
+            src={romanticGif} 
             alt="Romantic hearts animation" 
             className="w-64 h-auto mx-auto rounded-2xl soft-shadow"
           />

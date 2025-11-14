@@ -26,7 +26,7 @@ const timelineEvents: TimelineEvent[] = [
   {
     date: "Febbraio 2024",
     title: "La wake up call",
-    description: "Quel momento in cui abbiamo vissuto la litigata che ha dato svoltato la nostra storia",
+    description: "Quel momento in cui abbiamo vissuto la litigata che ha svoltato la nostra storia",
   },
   {
     date: "Giugno 2024",

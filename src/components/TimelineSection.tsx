@@ -11,22 +11,22 @@ const timelineEvents: TimelineEvent[] = [
   {
     date: "Ottobre 2022",
     title: "Il Primo Incontro",
-    description: "Il momento in cui quel ragazzo con il maglioncino bordeaux mi chiesi cosa prendessi alle macchinette di discreto",
+    description: "Il momento in cui quel ragazzo con il maglioncino bordeaux mi chiese cosa prendessi alle macchinette di discreto",
   },
   {
     date: "Giugno 2023",
     title: "L'inizio di tutto",
-    description: "La sera della mia festa che ha dato inizio ad una storia strana ma bellissima",
+    description: "La sera della mia festa che ha dato inizio alla nostra storia, strana ma bellissima",
   },
   {
     date: "Novembre 2023",
     title: "L'ostacolo",
-    description: "Io che mi allontano e inizio a parlare con un altro",
+    description: "Quel momento in cui mi sono allontanata e ho iniziato a frequentare un altro ragazzo",
   },
   {
     date: "Febbraio 2024",
     title: "La wake up call",
-    description: "La litigata che ha dato la svolta alla nostra storia",
+    description: "Quel momento in cui abbiamo vissuto la litigata che ha dato svoltato la nostra storia",
   },
   {
     date: "Giugno 2024",

@@ -11,32 +11,32 @@ const timelineEvents: TimelineEvent[] = [
   {
     date: "Ottobre 2022",
     title: "Il Primo Incontro",
-    description: "Quel momento magico quando i nostri sguardi si sono incrociati per la prima volta.",
+    description: "Il momento in cui quel ragazzo con il maglioncino bordeaux mi chiesi cosa prendessi alle macchinette di discreto",
   },
   {
     date: "Giugno 2023",
     title: "L'inizio di tutto",
-    description: "Avventure insieme, risate condivise e ricordi che durano per sempre.",
+    description: "La sera della mia festa che ha dato inizio ad una storia strana ma bellissima",
   },
   {
     date: "Novembre 2023",
     title: "L'ostacolo",
-    description: "Le sfide che ci hanno reso più forti.",
+    description: "Io che mi allontano e inizio a parlare con un altro",
   },
   {
     date: "Febbraio 2024",
     title: "La wake up call",
-    description: "Il momento che ha cambiato tutto.",
+    description: "La litigata che ha dato la svolta alla nostra storia",
   },
   {
     date: "Giugno 2024",
     title: "La dichiarazione",
-    description: "Il giorno in cui abbiamo capito che eravamo fatti l'uno per l'altra.",
+    description: "Quel momento in cui hai deciso di aprirmi il tuo cuore e dirmi cosa provavi davvero",
   },
   {
     date: "Novembre 2024",
     title: "Finalmente insieme",
-    description: "Costruendo insieme il nostro futuro, un passo alla volta.",
+    description: "L'inizio della storia d'amore che ho sempre sognato",
   },
   {
     date: "Oggi",

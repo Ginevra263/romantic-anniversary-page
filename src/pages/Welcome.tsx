@@ -2,9 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const Welcome = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [canClick, setCanClick] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
@@ -15,6 +17,12 @@ const Welcome = () => {
       const randomY = Math.random() * 200 - 100;
       setPosition({ x: randomX, y: randomY });
       setCanClick(true);
+      
+      // Mostra il messaggio
+      toast({
+        description: "Ups, riprova ancora hehe",
+        duration: 2000,
+      });
     }
   };
 

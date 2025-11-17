@@ -81,9 +81,9 @@ const MemoryGameSection = () => {
 
         if (newCards.every((card) => card.isMatched)) {
           setIsComplete(true);
-          toast("🎉 Hai vinto! Complimenti amore mio!");
+
         }
-      }, 1000);
+      };
     } else {
       setTimeout(() => {
         const newCards = [...cards];

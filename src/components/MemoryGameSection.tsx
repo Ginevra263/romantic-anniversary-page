@@ -81,7 +81,6 @@ const MemoryGameSection = () => {
 
         if (newCards.every((card) => card.isMatched)) {
           setIsComplete(true);
-          toast.success("Bravo! Hai completato il gioco! 💕");
         }
       }, 500);
     } else {

@@ -1,6 +1,6 @@
 import HeroSection from "@/components/HeroSection";
 import TimelineSection from "@/components/TimelineSection";
-import LoveLetterSection from "@/components/LoveLetterSection";
+import MemoryGameSection from "@/components/MemoryGameSection";
 import MusicFutureSection from "@/components/MusicFutureSection";
 import ClosingSection from "@/components/ClosingSection";
 
@@ -9,7 +9,7 @@ const Index = () => {
     <div className="min-h-screen">
       <HeroSection />
       <TimelineSection />
-      <LoveLetterSection />
+      <MemoryGameSection />
       <MusicFutureSection />
       <ClosingSection />
     </div>

@@ -1,9 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Welcome = () => {
   const navigate = useNavigate();
+  const [canClick, setCanClick] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleButtonHover = () => {
+    if (!canClick) {
+      // Sposta il bottone in una posizione casuale
+      const randomX = Math.random() * 200 - 100; // tra -100 e 100
+      const randomY = Math.random() * 200 - 100;
+      setPosition({ x: randomX, y: randomY });
+      setCanClick(true);
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-accent/10 px-6">
@@ -24,7 +37,12 @@ const Welcome = () => {
         <Button
           size="lg"
           onClick={() => navigate('/anniversary')}
+          onMouseEnter={handleButtonHover}
           className="text-lg px-8 py-6 elegant-transition hover:scale-105"
+          style={{
+            transform: `translate(${position.x}px, ${position.y}px)`,
+            transition: canClick ? 'transform 0.3s ease' : 'transform 0.2s ease',
+          }}
         >
           <Heart className="w-5 h-5 mr-2" />
           Entra

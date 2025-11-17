@@ -21,7 +21,7 @@ const Welcome = () => {
       // Mostra il messaggio
       toast({
         description: "Ups, riprova ancora hehe",
-        duration: 2000,
+        duration: 5000,
       });
     }
   };

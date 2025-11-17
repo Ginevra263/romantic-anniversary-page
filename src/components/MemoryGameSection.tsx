@@ -83,7 +83,7 @@ const MemoryGameSection = () => {
           setIsComplete(true);
           toast("🎉 Hai vinto! Complimenti amore mio!");
         }
-      }, 500);
+      }, 1000);
     } else {
       setTimeout(() => {
         const newCards = [...cards];
@@ -129,7 +129,7 @@ const MemoryGameSection = () => {
           <div className="text-center mb-8 animate-fade-in">
             <Card className="p-6 bg-gradient-to-r from-accent/20 to-primary/20">
               <p className="text-2xl font-bold text-primary mb-4">
-                🎉 Perfetto! 🎉
+                Bravo! almeno a questo vinci hihi 💕
               </p>
               <p className="text-lg text-foreground/90 mb-4">
                 Hai completato il gioco in {moves} mosse!

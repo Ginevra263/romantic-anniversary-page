@@ -43,21 +43,21 @@ const MemoryGameSection = () => {
     setIsComplete(false);
   };
 
-  const handleCardClick = (id: number) => {
+  const handleCardClick = (index: number) => {
     if (
       flippedCards.length === 2 ||
-      cards[id].isMatched ||
-      cards[id].isFlipped ||
-      flippedCards.includes(id)
+      cards[index].isMatched ||
+      cards[index].isFlipped ||
+      flippedCards.includes(index)
     ) {
       return;
     }
 
     const newCards = [...cards];
-    newCards[id].isFlipped = true;
+    newCards[index].isFlipped = true;
     setCards(newCards);
 
-    const newFlippedCards = [...flippedCards, id];
+    const newFlippedCards = [...flippedCards, index];
     setFlippedCards(newFlippedCards);
 
     if (newFlippedCards.length === 2) {
@@ -145,10 +145,10 @@ const MemoryGameSection = () => {
         )}
 
         <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto animate-fade-in">
-          {cards.map((card) => (
+          {cards.map((card, index) => (
             <Card
               key={card.id}
-              onClick={() => handleCardClick(card.id)}
+              onClick={() => handleCardClick(index)}
               className={`
                 aspect-square flex items-center justify-center cursor-pointer
                 transition-all duration-300 hover:scale-105

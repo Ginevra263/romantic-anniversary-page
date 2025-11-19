@@ -34,7 +34,7 @@ const SurpriseSection = () => {
               Buon anniversario amore
             </p>
             <p className="text-2xl md:text-3xl font-script text-foreground mt-4 font-semibold">
-              ti amo per sempre e anche dopo
+              Ti amo per sempre e anche dopo
             </p>
           </Card>
         )}

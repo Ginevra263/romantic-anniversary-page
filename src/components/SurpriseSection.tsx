@@ -28,10 +28,10 @@ const SurpriseSection = () => {
           <Card className="p-12 animate-fade-in bg-gradient-to-br from-accent/10 to-primary/10">
             <Heart className="w-16 h-16 mx-auto mb-8 text-accent fill-accent animate-pulse" />
             <p className="text-2xl md:text-4xl font-bold text-foreground leading-relaxed">
-              [Inserisci qui la tua dedica speciale per l'anno insieme] 💕
+              A te che sei la persona migliore che potessi chiedere al mio fianco, a te che mi ascolti sempre senza mai farmi sentire giudicata, a te che sei la prima persona con cui riesco ad essere al 100% me stessa, a te voglio dire che so che non sono perfetta ma prometto che non ci sarà giorno in cui non proverò a migliorarmi per il nostro futuro e per dei papabili mini noi
             </p>
             <p className="text-lg md:text-xl text-muted-foreground mt-8">
-              Con tutto il mio amore
+              ti amo per sempre e anche dopo
             </p>
           </Card>
         )}

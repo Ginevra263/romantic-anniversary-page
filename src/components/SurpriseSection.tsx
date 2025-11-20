@@ -13,7 +13,7 @@ const SurpriseSection = () => {
           <div className="animate-fade-in">
             <Gift className="w-16 h-16 mx-auto mb-8 text-accent animate-pulse" />
             <h2 className="text-4xl md:text-6xl font-bold mb-8">
-              Una Sorpresa per Te
+              Dedica
             </h2>
             <Button
               onClick={() => setIsRevealed(true)}
@@ -21,7 +21,7 @@ const SurpriseSection = () => {
               className="text-xl px-8 py-6 hover-scale"
             >
               <Heart className="w-6 h-6 mr-2" />
-              Schiaccia qui per una sorpresa
+              Schiaccia qui per la dedica
             </Button>
           </div>
         ) : (

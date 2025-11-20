@@ -13,7 +13,7 @@ const SurpriseSection = () => {
           <div className="animate-fade-in">
             <Gift className="w-16 h-16 mx-auto mb-8 text-accent animate-pulse" />
             <h2 className="text-4xl md:text-6xl font-bold mb-8">
-              Dedica
+              Una dedica per te, amore
             </h2>
             <Button
               onClick={() => setIsRevealed(true)}

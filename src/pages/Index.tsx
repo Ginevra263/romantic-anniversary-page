@@ -5,9 +5,12 @@ import MusicFutureSection from "@/components/MusicFutureSection";
 import SurpriseSection from "@/components/SurpriseSection";
 import ClosingSection from "@/components/ClosingSection";
 
+import AppBar from "@/components/AppBar";
+
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <AppBar />
       <HeroSection />
       <TimelineSection />
       <MemoryGameSection />

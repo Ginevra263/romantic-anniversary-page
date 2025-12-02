@@ -1,6 +1,6 @@
 import { Heart, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import stitchLove from "@/assets/stitch-love.jpg";
+import stitchLove from "@/assets/stitch_innamorato.png";
 
 const ClosingSection = () => {
   const scrollToTop = () => {
@@ -9,13 +9,13 @@ const ClosingSection = () => {
 
   return (
     <section className="py-24 px-6 bg-gradient-to-b from-muted/30 to-background">
-      <div className="max-w-3xl mx-auto text-center animate-fade-in">
+      <div className=" text-center animate-fade-in">
         {/* Stitch Love Image */}
-        <div className="mb-8">
-          <img 
-            src={stitchLove} 
-            alt="Me + You equals love with Stitch" 
-            className="w-96 h-auto mx-auto rounded-2xl soft-shadow"
+        <div className="mb-8 flex justify-center">
+          <img
+            src={stitchLove}
+            alt="Me + You equals love with Stitch"
+            className="w-full h-auto rounded-2xl soft-shadow"
           />
         </div>
 

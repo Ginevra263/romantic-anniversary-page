@@ -11,12 +11,15 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Determina il basename in base all'ambiente
+const basename = import.meta.env.PROD ? '/romantic-anniversary-page' : '';
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={basename}>
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/anniversary" element={<Index />} />

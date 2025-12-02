@@ -10,9 +10,9 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ 
+        style={{
           backgroundImage: `url(${heroImage})`,
         }}
       >
@@ -23,20 +23,20 @@ const HeroSection = () => {
       <div className="relative z-10 text-center px-6 py-20 max-w-4xl mx-auto">
         <div className="animate-fade-in">
           <Heart className="w-16 h-16 mx-auto mb-6 text-accent fill-accent" />
-          
+
           <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight">
             Il Nostro Primo Capitolo
           </h1>
-          
+
           <div className="text-2xl md:text-3xl text-accent font-semibold mb-8 tracking-wide">
             365 giorni di noi
           </div>
-          
+
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
             Un anno di amore, crescita e tante risate
           </p>
 
-          <Button 
+          <Button
             size="lg"
             onClick={scrollToTimeline}
             className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg font-medium rounded-full elegant-transition romantic-shadow group"
@@ -46,12 +46,6 @@ const HeroSection = () => {
           </Button>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-3 bg-primary rounded-full animate-pulse" />
-          </div>
-        </div>
       </div>
     </section>
   );

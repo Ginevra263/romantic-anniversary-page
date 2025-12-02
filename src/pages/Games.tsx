@@ -1,229 +1,135 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import AppBar from "@/components/AppBar";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Heart, Sparkles, Trophy, RotateCcw, User } from "lucide-react";
-import { toast } from "sonner";
-import { cn } from "@/lib/utils";
-import cuteDogGif from "@/assets/cute_dog.gif";
-import cuteGhostImg from "@/assets/cute_ghost.jpg";
-import cutePenguinImg from "@/assets/cute_penguin.jpg";
-import cuteHeartImg from "@/assets/cute_heart.png";
+import { Heart, Target, Brain, Sparkles, Trophy } from "lucide-react";
+import MemoryGame from "@/components/MemoryGame";
+import DartsGame from "@/components/DartsGame";
 
-type CardContent =
-    | { type: "text"; value: string }
-    | { type: "icon"; value: "heart" | "sparkles" }
-    | { type: "emoji"; value: string }
-    | { type: "gif"; value: string }
-    | { type: "image"; value: string };
+type GameType = "menu" | "memory" | "darts";
 
-type GameCard = {
-    id: number;
-    content: CardContent;
-    isFlipped: boolean;
-    isMatched: boolean;
-};
+interface GameInfo {
+    id: string;
+    title: string;
+    description: string;
+    icon: React.ReactNode;
+    gradient: string;
+    component: GameType;
+}
 
 const Games = () => {
-    const [cards, setCards] = useState<GameCard[]>([]);
-    const [flippedCards, setFlippedCards] = useState<number[]>([]);
-    const [turn, setTurn] = useState<1 | 2>(1);
-    const [scores, setScores] = useState({ 1: 0, 2: 0 });
-    const [isGameActive, setIsGameActive] = useState(false);
+    const [activeGame, setActiveGame] = useState<GameType>("menu");
 
-    const initializeGame = () => {
-        const cardTypes: CardContent[] = [
-            { type: "text", value: "Mao" },
-            { type: "text", value: "Shiu" },
-            { type: "text", value: "Ti amo" },
-            { type: "text", value: "hehehe" },
-            { type: "image", value: cuteHeartImg },
-            { type: "gif", value: cuteDogGif },
-            { type: "image", value: cuteGhostImg },
-            { type: "image", value: cutePenguinImg },
-        ];
-
-        const deck = [...cardTypes, ...cardTypes]
-            .map((content, index) => ({
-                id: index,
-                content,
-                isFlipped: false,
-                isMatched: false,
-            }))
-            .sort(() => Math.random() - 0.5);
-
-        setCards(deck);
-        setFlippedCards([]);
-        setTurn(1);
-        setScores({ 1: 0, 2: 0 });
-        setIsGameActive(true);
-        toast.success("Nuova partita iniziata! Tocca al Andre");
-    };
-
-    useEffect(() => {
-        initializeGame();
-    }, []);
-
-    const handleCardClick = (index: number) => {
-        if (
-            !isGameActive ||
-            cards[index].isMatched ||
-            cards[index].isFlipped ||
-            flippedCards.length >= 2
-        ) {
-            return;
+    const games: GameInfo[] = [
+        {
+            id: "memory",
+            title: "Memory dell'Amore",
+            description: "Sfida il tuo partner in un classico gioco di memoria con carte romantiche!",
+            icon: <Brain className="w-12 h-12" />,
+            gradient: "from-purple-500 to-pink-500",
+            component: "memory"
+        },
+        {
+            id: "darts",
+            title: "Freccette dell'Amore",
+            description: "Lancia freccette a forma di cuore! Gioco a 301 punti per 2 giocatori.",
+            icon: <Target className="w-12 h-12" />,
+            gradient: "from-red-500 to-rose-500",
+            component: "darts"
         }
+    ];
 
-        const newCards = [...cards];
-        newCards[index].isFlipped = true;
-        setCards(newCards);
+    if (activeGame === "memory") {
+        return <MemoryGame onBack={() => setActiveGame("menu")} />;
+    }
 
-        const newFlipped = [...flippedCards, index];
-        setFlippedCards(newFlipped);
-
-        if (newFlipped.length === 2) {
-            checkMatch(newFlipped, newCards);
-        }
-    };
-
-    const checkMatch = (flipped: number[], currentCards: GameCard[]) => {
-        const [firstIndex, secondIndex] = flipped;
-        const firstCard = currentCards[firstIndex];
-        const secondCard = currentCards[secondIndex];
-
-        const isMatch =
-            firstCard.content.type === secondCard.content.type &&
-            firstCard.content.value === secondCard.content.value;
-
-        if (isMatch) {
-            setTimeout(() => {
-                const newCards = [...currentCards];
-                newCards[firstIndex].isMatched = true;
-                newCards[secondIndex].isMatched = true;
-                setCards(newCards);
-                setFlippedCards([]);
-
-                setScores(prev => ({
-                    ...prev,
-                    [turn]: prev[turn] + 1
-                }));
-
-                toast.success(`Bravo Giocatore ${turn}! Un punto!`);
-
-                if (newCards.every(c => c.isMatched)) {
-                    setIsGameActive(false);
-                    toast.success("Partita completata!");
-                }
-            }, 500);
-        } else {
-            setTimeout(() => {
-                const newCards = [...currentCards];
-                newCards[firstIndex].isFlipped = false;
-                newCards[secondIndex].isFlipped = false;
-                setCards(newCards);
-                setFlippedCards([]);
-                setTurn(prev => prev === 1 ? 2 : 1);
-            }, 1000);
-        }
-    };
-
-    const renderCardContent = (card: GameCard) => {
-        if (!card.isFlipped && !card.isMatched) {
-            return <Heart className="w-8 h-8 text-accent animate-pulse" />;
-        }
-
-        switch (card.content.type) {
-            case "icon":
-                if (card.content.value === "heart") return <Heart className="w-10 h-10 text-red-500 fill-red-500" />;
-                if (card.content.value === "sparkles") return <Sparkles className="w-10 h-10 text-yellow-500" />;
-                return null;
-            case "emoji":
-                return <span className="text-4xl">{card.content.value}</span>;
-            case "text":
-                return <span className="text-lg font-bold text-primary">{card.content.value}</span>;
-            case "gif":
-                return <img src={card.content.value} alt="gif" className="w-20 h-20 object-cover rounded-lg" />;
-            case "image":
-                return <img src={card.content.value} alt="image" className="w-20 h-20 object-cover rounded-lg" />;
-        }
-    };
+    if (activeGame === "darts") {
+        return <DartsGame onBack={() => setActiveGame("menu")} />;
+    }
 
     return (
         <div className="min-h-screen bg-background pb-20">
             <AppBar />
 
-            <div className="pt-24 px-4 max-w-4xl mx-auto">
-                <div className="text-center mb-8 animate-fade-in">
-                    <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
-                        <Trophy className="w-10 h-10 text-yellow-500" />
-                        Sfida Memory
-                    </h1>
-                    <p className="text-muted-foreground">
-                        Sfida il tuo amore in questo gioco di memoria!
+            <div className="pt-24 px-4 max-w-6xl mx-auto">
+                {/* Header */}
+                <div className="text-center mb-12 animate-fade-in">
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                        <Trophy className="w-12 h-12 text-yellow-500 animate-bounce" />
+                        <h1 className="text-5xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-rose-500 bg-clip-text text-transparent">
+                            Giochi dell'Amore
+                        </h1>
+                        <Sparkles className="w-12 h-12 text-yellow-500 animate-pulse" />
+                    </div>
+                    <p className="text-muted-foreground text-lg">
+                        Scegli un gioco e sfida il tuo amore! 💕
                     </p>
                 </div>
 
-                {/* Scoreboard */}
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                    <Card className={cn(
-                        "p-4 flex flex-col items-center justify-center transition-all duration-300 border-2",
-                        turn === 1 ? "border-primary bg-primary/10 scale-105 shadow-lg" : "border-transparent bg-muted/50"
-                    )}>
-                        <div className="flex items-center gap-2 mb-2">
-                            <User className="w-5 h-5" />
-                            <span className="font-bold">Andre</span>
-                        </div>
-                        <span className="text-3xl font-bold text-primary">{scores[1]}</span>
-                    </Card>
-
-                    <Card className={cn(
-                        "p-4 flex flex-col items-center justify-center transition-all duration-300 border-2",
-                        turn === 2 ? "border-primary bg-primary/10 scale-105 shadow-lg" : "border-transparent bg-muted/50"
-                    )}>
-                        <div className="flex items-center gap-2 mb-2">
-                            <User className="w-5 h-5" />
-                            <span className="font-bold">Gine</span>
-                        </div>
-                        <span className="text-3xl font-bold text-primary">{scores[2]}</span>
-                    </Card>
-                </div>
-
-                {/* Game Grid */}
-                <div className="grid grid-cols-4 gap-3 sm:gap-4 max-w-lg mx-auto mb-8">
-                    {cards.map((card, index) => (
+                {/* Games Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                    {games.map((game, index) => (
                         <Card
-                            key={card.id}
-                            onClick={() => handleCardClick(index)}
-                            className={cn(
-                                "aspect-square flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden",
-                                card.isMatched ? "opacity-60 ring-2 ring-green-500" : "",
-                                card.isFlipped ? "bg-card ring-2 ring-primary" : "bg-primary/10 hover:bg-primary/20"
-                            )}
+                            key={game.id}
+                            className="group relative overflow-hidden border-2 border-transparent hover:border-primary/50 transition-all duration-300 cursor-pointer"
+                            style={{
+                                animationDelay: `${index * 100}ms`
+                            }}
                         >
-                            {renderCardContent(card)}
+                            <div
+                                className={`absolute inset-0 bg-gradient-to-br ${game.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                            />
+
+                            <div className="relative p-8">
+                                <div className="flex flex-col items-center text-center space-y-4">
+                                    {/* Icon */}
+                                    <div className={`p-6 rounded-2xl bg-gradient-to-br ${game.gradient} text-white transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}>
+                                        {game.icon}
+                                    </div>
+
+                                    {/* Title */}
+                                    <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                                        {game.title}
+                                    </h2>
+
+                                    {/* Description */}
+                                    <p className="text-muted-foreground text-sm leading-relaxed min-h-[3rem]">
+                                        {game.description}
+                                    </p>
+
+                                    {/* Play Button */}
+                                    <Button
+                                        size="lg"
+                                        onClick={() => setActiveGame(game.component)}
+                                        className={`w-full gap-2 bg-gradient-to-r ${game.gradient} hover:shadow-xl hover:scale-105 transition-all duration-300 text-white border-none`}
+                                    >
+                                        <Heart className="w-5 h-5 fill-white" />
+                                        Gioca Ora
+                                    </Button>
+                                </div>
+                            </div>
+
+                            {/* Decorative corner hearts */}
+                            <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
+                                <Heart className="w-6 h-6 fill-current text-red-500" />
+                            </div>
+                            <div className="absolute bottom-4 left-4 opacity-20 group-hover:opacity-40 transition-opacity">
+                                <Heart className="w-6 h-6 fill-current text-pink-500" />
+                            </div>
                         </Card>
                     ))}
                 </div>
 
-                {/* Controls */}
-                <div className="flex justify-center">
-                    <Button
-                        size="lg"
-                        onClick={initializeGame}
-                        className="gap-2 shadow-lg hover:shadow-xl transition-all"
-                    >
-                        <RotateCcw className="w-5 h-5" />
-                        Ricomincia Partita
-                    </Button>
-                </div>
-
-                {!isGameActive && cards.every(c => c.isMatched) && (
-                    <div className="mt-8 text-center animate-bounce">
-                        <h2 className="text-2xl font-bold text-primary mb-2">
-                            {scores[1] > scores[2] ? "Vince Andre! 🎉" : scores[2] > scores[1] ? "Vince Gine! 🎉" : "Pareggio! 💕"}
-                        </h2>
+                {/* Coming Soon Section */}
+                <Card className="p-8 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-red-500/5 border-dashed">
+                    <div className="text-center">
+                        <Sparkles className="w-10 h-10 mx-auto mb-4 text-yellow-500 animate-pulse" />
+                        <h3 className="text-2xl font-bold mb-2">Altri giochi in arrivo!</h3>
+                        <p className="text-muted-foreground">
+                            Stiamo preparando nuove sorprese romantiche per voi... 💝
+                        </p>
                     </div>
-                )}
+                </Card>
             </div>
         </div>
     );

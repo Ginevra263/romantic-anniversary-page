@@ -1,73 +1,83 @@
-# Welcome to your Lovable project
+# 💕 Romantic Anniversary Page
 
-## Project info
+Una pagina web romantica e interattiva per celebrare momenti speciali insieme. Creata con amore utilizzando React, TypeScript e Vite.
 
-**URL**: https://lovable.dev/projects/ccf0addb-f1cf-4a86-a3b5-1b4024a3236e
+## ✨ Caratteristiche
 
-## How can I edit this code?
+- 🏠 **Home Page romantica** con sezioni dedicate ai ricordi
+- 🎮 **Memory Game** a due giocatori con elementi personalizzati
+- 📸 **Galleria fotografica** con didascalie e lightbox
+- 🎨 **Design elegante** con tema romantico burgundy e rosa
+- 📱 **Responsive** - funziona perfettamente su tutti i dispositivi
+- ⚡ **Animazioni fluide** e micro-interazioni
+- 🌙 **Supporto dark mode**
 
-There are several ways of editing your application.
+## 🚀 Tecnologie utilizzate
 
-**Use Lovable**
+- **React 18** con TypeScript
+- **Vite** per build ultra-veloce
+- **Tailwind CSS** per lo styling
+- **Shadcn/ui** per i componenti UI
+- **React Router** per la navigazione
+- **Lucide React** per le icone
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ccf0addb-f1cf-4a86-a3b5-1b4024a3236e) and start prompting.
+## 🎯 Sezioni
 
-Changes made via Lovable will be committed automatically to this repo.
+1. **Home** - Pagina principale con Hero Section e Timeline
+2. **Games** - Memory game interattivo per due giocatori
+3. **Gallery** - Collezione di 14 foto romantiche con didascalie
 
-**Use your preferred IDE**
+## 🛠️ Installazione e Sviluppo
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Clona il repository
+git clone https://github.com/TUO-USERNAME/romantic-anniversary-page.git
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Entra nella cartella
+cd romantic-anniversary-page
 
-Follow these steps:
+# Installa le dipendenze
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Avvia il server di sviluppo
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Il sito sarà disponibile su `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📦 Build per produzione
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+I file ottimizzati saranno generati nella cartella `dist/`
 
-## What technologies are used for this project?
+## 🌐 Deploy
 
-This project is built with:
+Questo progetto è configurato per il deploy automatico su **GitHub Pages**.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Leggi la [Guida al Deploy](./DEPLOY_GUIDE.md) per istruzioni dettagliate.
 
-## How can I deploy this project?
+## 💝 Personalizzazione
 
-Simply open [Lovable](https://lovable.dev/projects/ccf0addb-f1cf-4a86-a3b5-1b4024a3236e) and click on Share -> Publish.
+Per personalizzare il contenuto:
 
-## Can I connect a custom domain to my Lovable project?
+1. **Galleria**: Sostituisci le immagini in `src/assets/gallery/` e aggiorna le didascalie in `src/pages/Gallery.tsx`
+2. **Testi**: Modifica i contenuti nelle varie sezioni in `src/pages/`
+3. **Colori**: Personalizza il tema in `src/index.css` modificando le variabili CSS
+4. **Memory Game**: Aggiorna i contenuti delle carte in `src/pages/Games.tsx`
 
-Yes, you can!
+## 📄 Licenza
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Questo è un progetto personale creato con amore ❤️
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🎨 Credits
+
+- Fonts: Google Fonts (Playfair Display, Montserrat, Dancing Script)
+- Icons: Lucide React
+- UI Components: Shadcn/ui
+
+---
+
+Fatto con 💖 per celebrare momenti speciali

@@ -139,14 +139,30 @@ const PlaylistSection = () => {
                     </p>
                   </div>
 
-                  {/* Play indicator */}
-                  {playingId === song.id && (
-                    <div className="flex items-center gap-1">
-                      <span className="w-1 h-3 bg-primary rounded-full animate-pulse" />
-                      <span className="w-1 h-4 bg-primary rounded-full animate-pulse" style={{ animationDelay: "0.1s" }} />
-                      <span className="w-1 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: "0.2s" }} />
-                    </div>
-                  )}
+                  {/* Play/Pause Button */}
+                  <button
+                    className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      playingId === song.id
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-muted hover:bg-primary hover:text-primary-foreground"
+                    }`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      togglePlay(song.id);
+                    }}
+                  >
+                    {playingId === song.id ? (
+                      <>
+                        <Pause className="w-4 h-4" />
+                        <span className="hidden sm:inline">Chiudi</span>
+                      </>
+                    ) : (
+                      <>
+                        <Play className="w-4 h-4" />
+                        <span className="hidden sm:inline">Ascolta</span>
+                      </>
+                    )}
+                  </button>
                 </div>
 
                 {/* Spotify Player (shown when playing) */}

@@ -4,59 +4,59 @@ import { Play, Pause, Music, Heart } from "lucide-react";
 const songs = [
   {
     id: 0,
-    title: "La nostra canzone",
-    artist: "La nostra storia",
-    description: "Il nostro primo ballo insieme",
-    spotifyUrl: "https://open.spotify.com/embed/track/6qqrTXSdwiJaq8SO0X2lSe?utm_source=generator",
+    title: "Ordinary",
+    artist: "Artista",
+    description: "Una delle nostre canzoni speciali",
+    spotifyUrl: "https://open.spotify.com/embed/track/2eAZfqOm4EnOF9VvN50Tyc?utm_source=generator",
   },
   {
     id: 1,
-    title: "Il Primo Bacio",
-    artist: "Momenti speciali",
-    description: "Quando tutto è iniziato",
-    spotifyUrl: "https://open.spotify.com/embed/track/5r9wBfbbK4JcZUEAGFg6su?utm_source=generator",
+    title: "Sola",
+    artist: "Artista",
+    description: "La canzone che ci emoziona sempre",
+    spotifyUrl: "https://open.spotify.com/embed/track/5MxNLUsfh7uzROypsoO5qe?utm_source=generator",
   },
   {
     id: 2,
-    title: "Momenti Indimenticabili",
-    artist: "I nostri ricordi",
-    description: "Ogni nota mi riporta a quei momenti magici",
-    spotifyUrl: "https://open.spotify.com/embed/track/2Kiojd0gMDcuUKXgwkXPkb?utm_source=generator",
+    title: "Rivivere",
+    artist: "Artista",
+    description: "Ogni volta che la sento penso a te",
+    spotifyUrl: "https://open.spotify.com/embed/track/1GWKxhaIvhOF0pGKlXaKIF?utm_source=generator",
   },
   {
     id: 3,
-    title: "Sotto le Stelle",
-    artist: "Notti romantiche",
-    description: "La colonna sonora delle nostre passeggiate",
-    spotifyUrl: "https://open.spotify.com/embed/track/4lTFQjsjvuxTTq4L9qe82c?utm_source=generator",
+    title: "Toro Loco",
+    artist: "Artista",
+    description: "La nostra energia insieme",
+    spotifyUrl: "https://open.spotify.com/embed/track/18yTgk0VgjB9DPOLgn1Kbp?utm_source=generator",
   },
   {
     id: 4,
-    title: "Cuore a Cuore",
-    artist: "Distanza e vicinanza",
-    description: "Ci fa sentire vicini anche da lontano",
-    spotifyUrl: "https://open.spotify.com/embed/track/05GjY7oLDOgcXQPHpAdKNi?utm_source=generator",
+    title: "Piccola Stella",
+    artist: "Artista",
+    description: "Tu sei la mia piccola stella",
+    spotifyUrl: "https://open.spotify.com/embed/track/60jFaQV7Z4boGC4ob5B5c6?utm_source=generator",
   },
   {
     id: 5,
-    title: "Insieme Per Sempre",
-    artist: "La nostra promessa",
-    description: "Le parole del nostro futuro insieme",
-    spotifyUrl: "https://open.spotify.com/embed/track/0jkAr7eZsvWDLYiQCfaxak?utm_source=generator&theme=0",
+    title: "Neon",
+    artist: "Artista",
+    description: "Brilliamo insieme come luci al neon",
+    spotifyUrl: "https://open.spotify.com/embed/track/6Im9k8u9iIzKMrmV7BWtlF?utm_source=generator",
   },
   {
     id: 6,
-    title: "Danza dell'Amore",
-    artist: "Balli in cucina",
-    description: "Quella che ci fa ballare abbracciati",
-    spotifyUrl: "https://open.spotify.com/embed/track/6bfy5e5jWNcNSFAJzsMPED?utm_source=generator&theme=0",
+    title: "Battito",
+    artist: "Artista",
+    description: "Il battito del mio cuore per te",
+    spotifyUrl: "https://open.spotify.com/embed/track/3ee8shdfOIncDb5LUdxOar?utm_source=generator",
   },
   {
     id: 7,
-    title: "Per Sempre Tuo",
-    artist: "Il nostro futuro",
-    description: "Le melodie dei nostri sogni",
-    spotifyUrl: "https://open.spotify.com/embed/track/4T7nI6RllPyFPXJtIAtC7l?utm_source=generator&theme=0",
+    title: "Pleasantville",
+    artist: "Artista",
+    description: "Il nostro mondo perfetto insieme",
+    spotifyUrl: "https://open.spotify.com/embed/track/2KH4HmqwFKFjxMNOm4e0af?utm_source=generator",
   }
 ];
 
@@ -68,56 +68,56 @@ const PlaylistSection = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-[#0a0a0f]">
+    <section className="py-24 px-6 bg-background">
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <div className="inline-flex items-center gap-3 mb-6">
-            <Music className="w-10 h-10 text-accent" />
-            <Heart className="w-6 h-6 text-pink-400 fill-pink-400 animate-pulse" />
+            <Music className="w-10 h-10 text-primary" />
+            <Heart className="w-6 h-6 text-accent fill-accent animate-pulse" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Le Nostre Canzoni
           </h2>
-          <p className="text-lg text-gray-400">
+          <p className="text-lg text-muted-foreground">
             La colonna sonora della nostra storia d'amore
           </p>
         </div>
 
         {/* Playlist Container */}
-        <div className="bg-[#12121a] rounded-2xl border border-white/10 overflow-hidden">
+        <div className="bg-card rounded-2xl border border-border shadow-lg overflow-hidden">
           {/* Playlist Header */}
-          <div className="px-6 py-4 border-b border-white/10 flex items-center gap-4">
-            <div className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg flex items-center justify-center">
-              <Heart className="w-6 h-6 text-white fill-white" />
+          <div className="px-6 py-4 border-b border-border flex items-center gap-4 bg-muted/30">
+            <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+              <Heart className="w-6 h-6 text-primary-foreground fill-primary-foreground" />
             </div>
             <div>
-              <h3 className="text-white font-semibold">La Nostra Playlist</h3>
-              <p className="text-gray-400 text-sm">{songs.length} canzoni del cuore</p>
+              <h3 className="text-foreground font-semibold">La Nostra Playlist</h3>
+              <p className="text-muted-foreground text-sm">{songs.length} canzoni del cuore</p>
             </div>
           </div>
 
           {/* Songs List */}
-          <div className="max-h-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+          <div className="max-h-[600px] overflow-y-auto">
             {songs.map((song, index) => (
               <div key={song.id}>
                 {/* Song Item */}
                 <div
-                  className={`group px-6 py-4 flex items-center gap-4 hover:bg-white/5 transition-all duration-300 cursor-pointer ${
-                    playingId === song.id ? "bg-white/10" : ""
+                  className={`group px-6 py-4 flex items-center gap-4 hover:bg-muted/50 transition-all duration-300 cursor-pointer ${
+                    playingId === song.id ? "bg-primary/10" : ""
                   }`}
                   onClick={() => togglePlay(song.id)}
                 >
                   {/* Number / Play Icon */}
                   <div className="w-10 flex-shrink-0 flex items-center justify-center">
                     {playingId === song.id ? (
-                      <Pause className="w-5 h-5 text-accent fill-accent" />
+                      <Pause className="w-5 h-5 text-primary fill-primary" />
                     ) : (
                       <>
-                        <span className="text-gray-500 text-sm group-hover:hidden">
+                        <span className="text-muted-foreground text-sm group-hover:hidden">
                           #{String(index + 1).padStart(2, "0")}
                         </span>
-                        <Play className="w-5 h-5 text-white hidden group-hover:block" />
+                        <Play className="w-5 h-5 text-primary hidden group-hover:block" />
                       </>
                     )}
                   </div>
@@ -125,16 +125,16 @@ const PlaylistSection = () => {
                   {/* Song Info */}
                   <div className="flex-1 min-w-0">
                     <h4 className={`font-semibold truncate ${
-                      playingId === song.id ? "text-accent" : "text-white"
+                      playingId === song.id ? "text-primary" : "text-foreground"
                     }`}>
                       {song.title}
                     </h4>
-                    <p className="text-gray-400 text-sm truncate">{song.artist}</p>
+                    <p className="text-muted-foreground text-sm truncate">{song.artist}</p>
                   </div>
 
                   {/* Description */}
                   <div className="hidden md:block flex-1 min-w-0">
-                    <p className="text-gray-500 text-sm truncate italic">
+                    <p className="text-muted-foreground text-sm truncate italic">
                       "{song.description}"
                     </p>
                   </div>
@@ -142,9 +142,9 @@ const PlaylistSection = () => {
                   {/* Play indicator */}
                   {playingId === song.id && (
                     <div className="flex items-center gap-1">
-                      <span className="w-1 h-3 bg-accent rounded-full animate-pulse" />
-                      <span className="w-1 h-4 bg-accent rounded-full animate-pulse" style={{ animationDelay: "0.1s" }} />
-                      <span className="w-1 h-2 bg-accent rounded-full animate-pulse" style={{ animationDelay: "0.2s" }} />
+                      <span className="w-1 h-3 bg-primary rounded-full animate-pulse" />
+                      <span className="w-1 h-4 bg-primary rounded-full animate-pulse" style={{ animationDelay: "0.1s" }} />
+                      <span className="w-1 h-2 bg-primary rounded-full animate-pulse" style={{ animationDelay: "0.2s" }} />
                     </div>
                   )}
                 </div>
@@ -152,7 +152,7 @@ const PlaylistSection = () => {
                 {/* Spotify Player (shown when playing) */}
                 {playingId === song.id && (
                   <div className="px-6 pb-4 animate-fade-in">
-                    <div className="bg-[#1a1a25] rounded-xl p-4 border border-white/5">
+                    <div className="bg-muted/30 rounded-xl p-4 border border-border">
                       <iframe
                         style={{ borderRadius: "12px" }}
                         src={song.spotifyUrl}
@@ -173,10 +173,10 @@ const PlaylistSection = () => {
 
         {/* Bottom Message */}
         <div className="text-center mt-12 animate-fade-in">
-          <p className="text-gray-500 text-sm flex items-center justify-center gap-2">
-            <Heart className="w-4 h-4 text-pink-400 fill-pink-400" />
+          <p className="text-muted-foreground text-sm flex items-center justify-center gap-2">
+            <Heart className="w-4 h-4 text-accent fill-accent" />
             Ogni canzone racconta un pezzo di noi
-            <Heart className="w-4 h-4 text-pink-400 fill-pink-400" />
+            <Heart className="w-4 h-4 text-accent fill-accent" />
           </p>
         </div>
       </div>

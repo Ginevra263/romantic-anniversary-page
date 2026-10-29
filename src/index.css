@@ -8,44 +8,44 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Anniversary Theme - Romantic Elegance */
-    --background: 60 100% 97%;  /* Ivory/Cream */
-    --foreground: 205 18% 26%;  /* Anthracite Grey */
+    /* Anniversary Theme - Sweet & Cute */
+    --background: 340 100% 98%;  /* Blush */
+    --foreground: 340 25% 25%;  /* Cocoa rose */
 
-    --card: 60 100% 97%;
-    --card-foreground: 205 18% 26%;
+    --card: 0 0% 100%;
+    --card-foreground: 340 25% 25%;
 
-    --popover: 60 100% 97%;
-    --popover-foreground: 205 18% 26%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 25% 25%;
 
-    /* Burgundy Red for titles and emphasis */
-    --primary: 345 100% 25%;  /* Burgundy #800020 */
-    --primary-foreground: 60 100% 97%;
+    /* Raspberry for titles and emphasis */
+    --primary: 338 70% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Scarlet Red for buttons and highlights */
-    --accent: 0 100% 45%;  /* Scarlet #E50000 */
-    --accent-foreground: 60 100% 97%;
+    /* Bubblegum pink for buttons and highlights */
+    --accent: 345 90% 64%;
+    --accent-foreground: 0 0% 100%;
 
-    --secondary: 60 40% 95%;
-    --secondary-foreground: 345 100% 25%;
+    --secondary: 330 85% 95%;
+    --secondary-foreground: 338 70% 40%;
 
-    --muted: 60 20% 92%;
-    --muted-foreground: 205 10% 45%;
+    --muted: 340 60% 95%;
+    --muted-foreground: 340 15% 45%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 100% 97%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 345 30% 85%;
-    --input: 345 20% 90%;
-    --ring: 345 100% 25%;
+    --border: 340 70% 88%;
+    --input: 340 70% 90%;
+    --ring: 338 70% 48%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     /* Custom romantic design tokens */
-    --romantic-gradient: linear-gradient(135deg, hsl(345, 100%, 25%) 0%, hsl(0, 100%, 45%) 100%);
-    --elegant-shadow: 0 10px 40px -10px hsl(345 100% 25% / 0.2);
-    --soft-shadow: 0 4px 20px -4px hsl(345 100% 25% / 0.1);
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --romantic-gradient: linear-gradient(135deg, hsl(338, 70%, 48%) 0%, hsl(345, 90%, 64%) 100%);
+    --elegant-shadow: 0 12px 40px -10px hsl(345 90% 60% / 0.35);
+    --soft-shadow: 0 6px 24px -6px hsl(345 90% 60% / 0.2);
+    --transition-smooth: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .dark {
@@ -87,11 +87,14 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Quicksand', sans-serif;
+    /* Soft polka dots */
+    background-image: radial-gradient(hsl(var(--accent) / 0.12) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Fredoka', sans-serif;
     color: hsl(var(--primary));
   }
 
@@ -115,6 +118,47 @@ All colors MUST be HSL.
 
   .soft-shadow {
     box-shadow: var(--soft-shadow);
+  }
+
+  .cute-card {
+    background: hsl(var(--card));
+    border: 2px solid hsl(var(--border));
+    border-radius: 2rem;
+    box-shadow: var(--soft-shadow);
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.15); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.1); }
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-6deg); }
+    50% { transform: rotate(6deg); }
+  }
+
+  @keyframes float-up {
+    0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.55; }
+    50% { transform: translateY(-55vh) translateX(18px) rotate(12deg); }
+    90% { opacity: 0.45; }
+    100% { transform: translateY(-115vh) translateX(-12px) rotate(-8deg); opacity: 0; }
+  }
+
+  .animate-heartbeat {
+    animation: heartbeat 1.6s ease-in-out infinite;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 2.4s ease-in-out infinite;
+  }
+
+  .animate-float-up {
+    animation-name: float-up;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
   }
 
   /* Gallery animations */

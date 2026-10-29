@@ -2,7 +2,8 @@ import { useState } from "react";
 import AppBar from "@/components/AppBar";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Heart, Target, Brain, Sparkles, Trophy } from "lucide-react";
+import { CuteIcon, HeartIcon, SparkleIcon, StarIcon, GiftIcon, type CuteIconName } from "@/components/CuteIcons";
+import FloatingHearts from "@/components/FloatingHearts";
 import MemoryGame from "@/components/MemoryGame";
 import DartsGame from "@/components/DartsGame";
 
@@ -12,7 +13,7 @@ interface GameInfo {
     id: string;
     title: string;
     description: string;
-    icon: React.ReactNode;
+    icon: CuteIconName;
     gradient: string;
     component: GameType;
 }
@@ -25,16 +26,16 @@ const Games = () => {
             id: "memory",
             title: "Memory dell'Amore",
             description: "Sfida il tuo partner in un classico gioco di memoria con carte romantiche!",
-            icon: <Brain className="w-12 h-12" />,
-            gradient: "from-purple-500 to-pink-500",
+            icon: "penguin",
+            gradient: "from-purple-300 to-pink-400",
             component: "memory"
         },
         {
             id: "darts",
             title: "Freccette dell'Amore",
             description: "Lancia freccette a forma di cuore! Gioco a 301 punti per 2 giocatori.",
-            icon: <Target className="w-12 h-12" />,
-            gradient: "from-red-500 to-rose-500",
+            icon: "heartFace",
+            gradient: "from-pink-400 to-rose-400",
             component: "darts"
         }
     ];
@@ -48,21 +49,23 @@ const Games = () => {
     }
 
     return (
-        <div className="min-h-screen bg-background pb-20">
+        <div className="min-h-screen pb-20">
             <AppBar />
+            <FloatingHearts />
 
             <div className="pt-24 px-4 max-w-6xl mx-auto">
                 {/* Header */}
                 <div className="text-center mb-12 animate-fade-in">
                     <div className="flex items-center justify-center gap-3 mb-4">
-                        <Trophy className="w-12 h-12 text-yellow-500 animate-bounce" />
+                        <StarIcon className="w-14 h-14 animate-wiggle" />
                         <h1 className="text-5xl font-bold bg-gradient-to-r from-pink-500 via-red-500 to-rose-500 bg-clip-text text-transparent">
                             Giochi dell'Amore
                         </h1>
-                        <Sparkles className="w-12 h-12 text-yellow-500 animate-pulse" />
+                        <SparkleIcon className="w-14 h-14 animate-heartbeat" />
                     </div>
-                    <p className="text-muted-foreground text-lg">
-                        Scegli un gioco e sfida il tuo amore! 💕
+                    <p className="text-muted-foreground text-lg flex items-center justify-center gap-2">
+                        Scegli un gioco e sfida il tuo amore!
+                        <HeartIcon className="w-6 h-6" />
                     </p>
                 </div>
 
@@ -71,7 +74,7 @@ const Games = () => {
                     {games.map((game, index) => (
                         <Card
                             key={game.id}
-                            className="group relative overflow-hidden border-2 border-transparent hover:border-primary/50 transition-all duration-300 cursor-pointer"
+                            className="group relative overflow-hidden rounded-[2rem] border-2 border-pink-100 hover:border-accent hover:-translate-y-1 hover:romantic-shadow transition-all duration-300 cursor-pointer"
                             style={{
                                 animationDelay: `${index * 100}ms`
                             }}
@@ -83,8 +86,8 @@ const Games = () => {
                             <div className="relative p-8">
                                 <div className="flex flex-col items-center text-center space-y-4">
                                     {/* Icon */}
-                                    <div className={`p-6 rounded-2xl bg-gradient-to-br ${game.gradient} text-white transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}>
-                                        {game.icon}
+                                    <div className={`p-5 rounded-full bg-gradient-to-br ${game.gradient} transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}>
+                                        <CuteIcon name={game.icon} className="w-16 h-16" />
                                     </div>
 
                                     {/* Title */}
@@ -101,9 +104,9 @@ const Games = () => {
                                     <Button
                                         size="lg"
                                         onClick={() => setActiveGame(game.component)}
-                                        className={`w-full gap-2 bg-gradient-to-r ${game.gradient} hover:shadow-xl hover:scale-105 transition-all duration-300 text-white border-none`}
+                                        className={`w-full gap-2 rounded-full bg-gradient-to-r ${game.gradient} hover:shadow-xl hover:scale-105 transition-all duration-300 text-white border-none`}
                                     >
-                                        <Heart className="w-5 h-5 fill-white" />
+                                        <HeartIcon className="w-6 h-6" />
                                         Gioca Ora
                                     </Button>
                                 </div>
@@ -111,22 +114,23 @@ const Games = () => {
 
                             {/* Decorative corner hearts */}
                             <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
-                                <Heart className="w-6 h-6 fill-current text-red-500" />
+                                <HeartIcon className="w-7 h-7" />
                             </div>
                             <div className="absolute bottom-4 left-4 opacity-20 group-hover:opacity-40 transition-opacity">
-                                <Heart className="w-6 h-6 fill-current text-pink-500" />
+                                <HeartIcon className="w-7 h-7" />
                             </div>
                         </Card>
                     ))}
                 </div>
 
                 {/* Coming Soon Section */}
-                <Card className="p-8 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-red-500/5 border-dashed">
+                <Card className="p-8 rounded-[2rem] border-2 border-pink-200 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-red-500/5 border-dashed">
                     <div className="text-center">
-                        <Sparkles className="w-10 h-10 mx-auto mb-4 text-yellow-500 animate-pulse" />
+                        <GiftIcon className="w-14 h-14 mx-auto mb-4 animate-wiggle" />
                         <h3 className="text-2xl font-bold mb-2">Altri giochi in arrivo!</h3>
-                        <p className="text-muted-foreground">
-                            Stiamo preparando nuove sorprese romantiche per voi... 💝
+                        <p className="text-muted-foreground flex items-center justify-center gap-2">
+                            Stiamo preparando nuove sorprese romantiche per voi...
+                            <HeartIcon face className="w-6 h-6" />
                         </p>
                     </div>
                 </Card>

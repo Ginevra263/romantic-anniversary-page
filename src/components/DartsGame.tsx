@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Heart, Target, RotateCcw, User, ArrowLeft, Trophy } from "lucide-react";
+import { Target, RotateCcw, ArrowLeft } from "lucide-react";
+import { HeartIcon, PartyIcon, PenguinIcon, SmileIcon, StarIcon, TwoHeartsIcon } from "@/components/CuteIcons";
+import FloatingHearts from "@/components/FloatingHearts";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
@@ -122,7 +124,7 @@ const DartsGame = ({ onBack }: DartsGameProps) => {
             newPlayers[currentPlayer].score = 0;
             setPlayers(newPlayers);
             setWinner(newPlayers[currentPlayer].name);
-            toast.success(`🎉 ${newPlayers[currentPlayer].name} ha vinto! 🎉`);
+            toast.success(`${newPlayers[currentPlayer].name} ha vinto!`, { icon: <PartyIcon className="w-5 h-5" /> });
             return;
         } else {
             newPlayers[currentPlayer].score = newScore;
@@ -217,12 +219,13 @@ const DartsGame = ({ onBack }: DartsGameProps) => {
     };
 
     return (
-        <div className="min-h-screen bg-background pb-20">
+        <div className="min-h-screen pb-20">
+            <FloatingHearts />
             <div className="pt-24 px-4 max-w-6xl mx-auto">
                 <Button
                     variant="ghost"
                     onClick={onBack}
-                    className="mb-4 gap-2"
+                    className="mb-4 gap-2 rounded-full"
                 >
                     <ArrowLeft className="w-4 h-4" />
                     Torna ai Giochi
@@ -230,23 +233,24 @@ const DartsGame = ({ onBack }: DartsGameProps) => {
 
                 <div className="text-center mb-8 animate-fade-in">
                     <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
-                        <Heart className="w-10 h-10 text-red-500 fill-red-500" />
+                        <HeartIcon face className="w-12 h-12 animate-heartbeat" />
                         Freccette dell'Amore
-                        <Heart className="w-10 h-10 text-red-500 fill-red-500" />
+                        <TwoHeartsIcon className="w-12 h-12 animate-wiggle" />
                     </h1>
-                    <p className="text-muted-foreground">
-                        Partenza da 301 punti - Chi arriva a 0 esatto vince! 💘
+                    <p className="text-muted-foreground flex items-center justify-center gap-2">
+                        Partenza da 301 punti - Chi arriva a 0 esatto vince!
+                        <HeartIcon className="w-5 h-5" />
                     </p>
                 </div>
 
                 {/* Scoreboard */}
                 <div className="grid grid-cols-2 gap-4 mb-8">
                     <Card className={cn(
-                        "p-6 flex flex-col items-center justify-center transition-all duration-300 border-2",
+                        "p-6 flex flex-col items-center justify-center transition-all duration-300 border-2 rounded-3xl",
                         currentPlayer === 0 && !winner ? "border-red-500 bg-red-500/10 scale-105 shadow-lg shadow-red-500/20" : "border-transparent bg-muted/50"
                     )}>
                         <div className="flex items-center gap-2 mb-2">
-                            <User className="w-5 h-5" />
+                            <PenguinIcon className="w-7 h-7" />
                             <span className="font-bold text-lg">Andre</span>
                         </div>
                         <span className={cn(
@@ -256,16 +260,16 @@ const DartsGame = ({ onBack }: DartsGameProps) => {
                             {players[0].score}
                         </span>
                         {winner === "Andre" && (
-                            <Trophy className="w-8 h-8 text-yellow-500 mt-2 animate-bounce" />
+                            <StarIcon className="w-10 h-10 mt-2 animate-bounce" />
                         )}
                     </Card>
 
                     <Card className={cn(
-                        "p-6 flex flex-col items-center justify-center transition-all duration-300 border-2",
+                        "p-6 flex flex-col items-center justify-center transition-all duration-300 border-2 rounded-3xl",
                         currentPlayer === 1 && !winner ? "border-red-500 bg-red-500/10 scale-105 shadow-lg shadow-red-500/20" : "border-transparent bg-muted/50"
                     )}>
                         <div className="flex items-center gap-2 mb-2">
-                            <User className="w-5 h-5" />
+                            <SmileIcon className="w-7 h-7" />
                             <span className="font-bold text-lg">Gine</span>
                         </div>
                         <span className={cn(
@@ -275,14 +279,14 @@ const DartsGame = ({ onBack }: DartsGameProps) => {
                             {players[1].score}
                         </span>
                         {winner === "Gine" && (
-                            <Trophy className="w-8 h-8 text-yellow-500 mt-2 animate-bounce" />
+                            <StarIcon className="w-10 h-10 mt-2 animate-bounce" />
                         )}
                     </Card>
                 </div>
 
                 {/* Dartboard */}
                 <div className="mb-8">
-                    <Card className="p-8 bg-gradient-to-br from-pink-500/5 via-red-500/5 to-rose-500/5">
+                    <Card className="p-8 rounded-[2rem] border-2 border-pink-100 bg-gradient-to-br from-pink-500/5 via-red-500/5 to-rose-500/5">
                         <div className="relative w-full max-w-md mx-auto aspect-square">
                             {/* Dartboard SVG */}
                             <svg viewBox="0 0 100 100" className="w-full h-full">

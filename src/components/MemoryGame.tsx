@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Heart, Sparkles, Trophy, RotateCcw, User, ArrowLeft } from "lucide-react";
+import { RotateCcw, ArrowLeft } from "lucide-react";
+import { HeartIcon, PartyIcon, StarIcon, PenguinIcon, SmileIcon, SparkleIcon } from "@/components/CuteIcons";
+import FloatingHearts from "@/components/FloatingHearts";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import cuteDogGif from "@/assets/cute_dog.gif";
@@ -132,13 +134,13 @@ const MemoryGame = ({ onBack }: MemoryGameProps) => {
 
     const renderCardContent = (card: GameCard) => {
         if (!card.isFlipped && !card.isMatched) {
-            return <Heart className="w-8 h-8 text-accent animate-pulse" />;
+            return <HeartIcon className="w-9 h-9 animate-heartbeat" />;
         }
 
         switch (card.content.type) {
             case "icon":
-                if (card.content.value === "heart") return <Heart className="w-10 h-10 text-red-500 fill-red-500" />;
-                if (card.content.value === "sparkles") return <Sparkles className="w-10 h-10 text-yellow-500" />;
+                if (card.content.value === "heart") return <HeartIcon face className="w-12 h-12" />;
+                if (card.content.value === "sparkles") return <SparkleIcon className="w-12 h-12" />;
                 return null;
             case "emoji":
                 return <span className="text-4xl">{card.content.value}</span>;
@@ -152,12 +154,13 @@ const MemoryGame = ({ onBack }: MemoryGameProps) => {
     };
 
     return (
-        <div className="min-h-screen bg-background pb-20">
+        <div className="min-h-screen pb-20">
+            <FloatingHearts />
             <div className="pt-24 px-4 max-w-4xl mx-auto">
                 <Button
                     variant="ghost"
                     onClick={onBack}
-                    className="mb-4 gap-2"
+                    className="mb-4 gap-2 rounded-full"
                 >
                     <ArrowLeft className="w-4 h-4" />
                     Torna ai Giochi
@@ -165,7 +168,7 @@ const MemoryGame = ({ onBack }: MemoryGameProps) => {
 
                 <div className="text-center mb-8 animate-fade-in">
                     <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
-                        <Trophy className="w-10 h-10 text-yellow-500" />
+                        <StarIcon className="w-12 h-12 animate-wiggle" />
                         Sfida Memory
                     </h1>
                     <p className="text-muted-foreground">
@@ -176,22 +179,22 @@ const MemoryGame = ({ onBack }: MemoryGameProps) => {
                 {/* Scoreboard */}
                 <div className="grid grid-cols-2 gap-4 mb-8">
                     <Card className={cn(
-                        "p-4 flex flex-col items-center justify-center transition-all duration-300 border-2",
+                        "p-4 flex flex-col items-center justify-center transition-all duration-300 border-2 rounded-3xl",
                         turn === 1 ? "border-primary bg-primary/10 scale-105 shadow-lg" : "border-transparent bg-muted/50"
                     )}>
                         <div className="flex items-center gap-2 mb-2">
-                            <User className="w-5 h-5" />
+                            <PenguinIcon className="w-7 h-7" />
                             <span className="font-bold">Andre</span>
                         </div>
                         <span className="text-3xl font-bold text-primary">{scores[1]}</span>
                     </Card>
 
                     <Card className={cn(
-                        "p-4 flex flex-col items-center justify-center transition-all duration-300 border-2",
+                        "p-4 flex flex-col items-center justify-center transition-all duration-300 border-2 rounded-3xl",
                         turn === 2 ? "border-primary bg-primary/10 scale-105 shadow-lg" : "border-transparent bg-muted/50"
                     )}>
                         <div className="flex items-center gap-2 mb-2">
-                            <User className="w-5 h-5" />
+                            <SmileIcon className="w-7 h-7" />
                             <span className="font-bold">Gine</span>
                         </div>
                         <span className="text-3xl font-bold text-primary">{scores[2]}</span>
@@ -205,9 +208,9 @@ const MemoryGame = ({ onBack }: MemoryGameProps) => {
                             key={card.id}
                             onClick={() => handleCardClick(index)}
                             className={cn(
-                                "aspect-square flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105 relative overflow-hidden",
-                                card.isMatched ? "opacity-60 ring-2 ring-green-500" : "",
-                                card.isFlipped ? "bg-card ring-2 ring-primary" : "bg-primary/10 hover:bg-primary/20"
+                                "aspect-square flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-105 hover:-rotate-2 relative overflow-hidden rounded-2xl",
+                                card.isMatched ? "opacity-70 ring-2 ring-pink-300" : "",
+                                card.isFlipped ? "bg-card ring-2 ring-accent" : "bg-gradient-to-br from-pink-100 to-rose-200 hover:from-pink-200"
                             )}
                         >
                             {renderCardContent(card)}
@@ -220,7 +223,7 @@ const MemoryGame = ({ onBack }: MemoryGameProps) => {
                     <Button
                         size="lg"
                         onClick={initializeGame}
-                        className="gap-2 shadow-lg hover:shadow-xl transition-all"
+                        className="gap-2 rounded-full shadow-lg hover:shadow-xl transition-all"
                     >
                         <RotateCcw className="w-5 h-5" />
                         Ricomincia Partita
@@ -229,8 +232,9 @@ const MemoryGame = ({ onBack }: MemoryGameProps) => {
 
                 {!isGameActive && cards.every(c => c.isMatched) && (
                     <div className="mt-8 text-center animate-bounce">
-                        <h2 className="text-2xl font-bold text-primary mb-2">
-                            {scores[1] > scores[2] ? "Vince Andre! 🎉" : scores[2] > scores[1] ? "Vince Gine! 🎉" : "Pareggio! 💕"}
+                        <h2 className="text-2xl font-bold text-primary mb-2 flex items-center justify-center gap-2">
+                            {scores[1] > scores[2] ? "Vince Andre!" : scores[2] > scores[1] ? "Vince Gine!" : "Pareggio!"}
+                            {scores[1] === scores[2] ? <HeartIcon face className="w-9 h-9" /> : <PartyIcon className="w-9 h-9" />}
                         </h2>
                     </div>
                 )}

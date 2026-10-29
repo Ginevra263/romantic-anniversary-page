@@ -1,11 +1,11 @@
-import { Heart } from "lucide-react";
+import { HeartIcon } from "@/components/CuteIcons";
 
 const LoveLetterSection = () => {
   return (
     <section className="py-24 px-6 bg-muted/30">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
-          <Heart className="w-12 h-12 mx-auto mb-6 text-accent fill-accent" />
+          <HeartIcon face className="w-16 h-16 mx-auto mb-6" />
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
             Una Promessa per Sempre
           </h2>
@@ -47,8 +47,9 @@ const LoveLetterSection = () => {
             </p>
           </div>
 
-          <div className="text-script text-3xl text-right mt-12 text-accent">
-            Per sempre tuo ❤️
+          <div className="text-script text-3xl mt-12 text-accent flex items-center justify-end gap-2">
+            Per sempre tuo
+            <HeartIcon className="w-8 h-8" />
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Heart, Sparkles } from "lucide-react";
+import { HeartIcon, PenguinIcon, SparkleIcon } from "@/components/CuteIcons";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
 
@@ -96,14 +96,14 @@ const MemoryGameSection = () => {
 
   const renderCardContent = (card: CardType) => {
     if (!card.isFlipped && !card.isMatched) {
-      return <Heart className="w-8 h-8 text-accent" />;
+      return <HeartIcon className="w-9 h-9" />;
     }
 
     if (card.content === "heart") {
-      return <Heart className="w-12 h-12 text-red-500 fill-red-500" />;
+      return <HeartIcon face className="w-14 h-14" />;
     }
     if (card.content === "penguin") {
-      return <span className="text-5xl">🐧</span>;
+      return <PenguinIcon className="w-14 h-14" />;
     }
     return <span className="text-xl font-bold text-primary">{card.content}</span>;
   };
@@ -112,12 +112,13 @@ const MemoryGameSection = () => {
     <section className="py-24 px-6 bg-muted/30">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12 animate-fade-in">
-          <Sparkles className="w-12 h-12 mx-auto mb-6 text-accent" />
+          <SparkleIcon className="w-16 h-16 mx-auto mb-6 animate-wiggle" />
           <h2 className="text-4xl md:text-6xl font-bold mb-4">
             Gioco Memory d'Amore
           </h2>
-          <p className="text-xl text-muted-foreground mb-4">
-            Trova tutte le coppie! 💕
+          <p className="text-xl text-muted-foreground mb-4 flex items-center justify-center gap-2">
+            Trova tutte le coppie!
+            <HeartIcon className="w-6 h-6" />
           </p>
           <p className="text-lg text-foreground/80">
             Mosse: <span className="font-bold text-primary">{moves}</span>
@@ -126,16 +127,17 @@ const MemoryGameSection = () => {
 
         {isComplete && (
           <div className="text-center mb-8 animate-fade-in">
-            <Card className="p-6 bg-gradient-to-r from-accent/20 to-primary/20">
-              <p className="text-2xl font-bold text-primary mb-4">
-                Bravo! almeno a questo vinci hihi 💕
+            <Card className="p-6 rounded-3xl bg-gradient-to-r from-accent/20 to-primary/20">
+              <p className="text-2xl font-bold text-primary mb-4 flex items-center justify-center gap-2">
+                Bravo! almeno a questo vinci hihi
+                <HeartIcon face className="w-8 h-8" />
               </p>
               <p className="text-lg text-foreground/90 mb-4">
                 Hai completato il gioco in {moves} mosse!
               </p>
               <button
                 onClick={initializeGame}
-                className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity"
+                className="px-6 py-2 bg-primary text-primary-foreground rounded-full hover:opacity-90 transition-opacity"
               >
                 Gioca Ancora
               </button>
@@ -149,10 +151,10 @@ const MemoryGameSection = () => {
               key={card.id}
               onClick={() => handleCardClick(index)}
               className={`
-                aspect-square flex items-center justify-center cursor-pointer
-                transition-all duration-300 hover:scale-105
+                aspect-square flex items-center justify-center cursor-pointer rounded-2xl
+                transition-all duration-300 hover:scale-105 hover:-rotate-2
                 ${card.isMatched ? "opacity-50 cursor-not-allowed" : ""}
-                ${card.isFlipped || card.isMatched ? "bg-card" : "bg-primary/20"}
+                ${card.isFlipped || card.isMatched ? "bg-card" : "bg-gradient-to-br from-pink-100 to-rose-200"}
               `}
             >
               {renderCardContent(card)}

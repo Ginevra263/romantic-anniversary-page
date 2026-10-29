@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Play, Pause, Music, Heart } from "lucide-react";
+import { Play, Pause } from "lucide-react";
+import { HeartIcon, MusicIcon } from "@/components/CuteIcons";
 
 const songs = [
   {
@@ -73,8 +74,8 @@ const PlaylistSection = () => {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
           <div className="inline-flex items-center gap-3 mb-6">
-            <Music className="w-10 h-10 text-primary" />
-            <Heart className="w-6 h-6 text-accent fill-accent animate-pulse" />
+            <MusicIcon className="w-16 h-16 animate-wiggle" />
+            <HeartIcon face className="w-10 h-10 animate-heartbeat" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Le Nostre Canzoni
@@ -85,11 +86,11 @@ const PlaylistSection = () => {
         </div>
 
         {/* Playlist Container */}
-        <div className="bg-card rounded-2xl border border-border shadow-lg overflow-hidden">
+        <div className="cute-card overflow-hidden">
           {/* Playlist Header */}
           <div className="px-6 py-4 border-b border-border flex items-center gap-4 bg-muted/30">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-              <Heart className="w-6 h-6 text-primary-foreground fill-primary-foreground" />
+            <div className="w-12 h-12 bg-white rounded-2xl ring-2 ring-accent/20 flex items-center justify-center">
+              <MusicIcon className="w-9 h-9" />
             </div>
             <div>
               <h3 className="text-foreground font-semibold">La Nostra Playlist</h3>
@@ -190,9 +191,9 @@ const PlaylistSection = () => {
         {/* Bottom Message */}
         <div className="text-center mt-12 animate-fade-in">
           <p className="text-muted-foreground text-sm flex items-center justify-center gap-2">
-            <Heart className="w-4 h-4 text-accent fill-accent" />
+            <HeartIcon className="w-5 h-5" />
             Ogni canzone racconta un pezzo di noi
-            <Heart className="w-4 h-4 text-accent fill-accent" />
+            <HeartIcon className="w-5 h-5" />
           </p>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Heart, Gamepad2, Home, Camera, Menu, X } from "lucide-react";
+import { Gamepad2, Home, Camera, Menu, X } from "lucide-react";
+import { HeartIcon } from "@/components/CuteIcons";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -31,7 +32,7 @@ const AppBar = () => {
                     <div className="flex items-center justify-between h-16">
                         {/* Logo */}
                         <div className="flex items-center gap-2">
-                            <Heart className="w-6 h-6 text-primary animate-pulse" fill="currentColor" />
+                            <HeartIcon face className="w-8 h-8 animate-heartbeat" />
                             <span className="text-xl font-script font-bold text-primary">
                                 Anniversary
                             </span>
@@ -95,7 +96,7 @@ const AppBar = () => {
                     {/* Sidebar Header */}
                     <div className="flex items-center justify-between p-4 border-b border-border">
                         <div className="flex items-center gap-2">
-                            <Heart className="w-5 h-5 text-primary animate-pulse" fill="currentColor" />
+                            <HeartIcon face className="w-7 h-7 animate-heartbeat" />
                             <span className="text-lg font-script font-bold text-primary">
                                 Menu
                             </span>
@@ -140,7 +141,7 @@ const AppBar = () => {
                         <div className="text-center">
                             <p className="text-sm text-muted-foreground">Fatto con</p>
                             <div className="flex items-center justify-center gap-1 mt-1">
-                                <Heart className="w-4 h-4 text-primary animate-pulse" fill="currentColor" />
+                                <HeartIcon className="w-5 h-5 animate-heartbeat" />
                                 <span className="text-sm font-medium text-primary">amore</span>
                             </div>
                         </div>

@@ -6,11 +6,13 @@ import SurpriseSection from "@/components/SurpriseSection";
 import ClosingSection from "@/components/ClosingSection";
 
 import AppBar from "@/components/AppBar";
+import FloatingHearts from "@/components/FloatingHearts";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <AppBar />
+      <FloatingHearts />
       <HeroSection />
       <TimelineSection />
       <MemoryGameSection />

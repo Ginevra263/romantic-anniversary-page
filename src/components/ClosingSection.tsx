@@ -1,4 +1,5 @@
-import { Heart, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
+import { HeartIcon, TwoHeartsIcon } from "@/components/CuteIcons";
 import { Button } from "@/components/ui/button";
 import stitchLove from "@/assets/stitch_innamorato.png";
 
@@ -15,7 +16,7 @@ const ClosingSection = () => {
           <img
             src={stitchLove}
             alt="Me + You equals love with Stitch"
-            className="w-full h-auto rounded-2xl soft-shadow"
+            className="w-full h-auto rounded-3xl soft-shadow"
           />
         </div>
 
@@ -23,17 +24,18 @@ const ClosingSection = () => {
         <Button
           variant="ghost"
           onClick={scrollToTop}
-          className="group hover:bg-accent/10 text-accent font-medium"
+          className="group rounded-full hover:bg-accent/10 text-accent font-medium"
         >
-          <Heart className="w-4 h-4 mr-2 group-hover:animate-pulse" />
+          <HeartIcon className="w-5 h-5 mr-2 group-hover:animate-heartbeat" />
           Torna all'inizio
           <ArrowUp className="w-4 h-4 ml-2 group-hover:-translate-y-1 transition-transform" />
         </Button>
 
         {/* Footer */}
         <div className="mt-16 pt-8 border-t border-border/50">
-          <p className="text-sm text-muted-foreground">
-            Un anno insieme, infiniti ancora da vivere ❤️
+          <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
+            Un anno insieme, infiniti ancora da vivere
+            <TwoHeartsIcon className="w-6 h-6 animate-heartbeat" />
           </p>
         </div>
       </div>

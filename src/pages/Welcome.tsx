@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Heart } from "lucide-react";
+import { HeartIcon, TwoHeartsIcon } from "@/components/CuteIcons";
+import FloatingHearts from "@/components/FloatingHearts";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -28,6 +29,7 @@ const Welcome = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-primary/5 to-accent/10 px-6">
+      <FloatingHearts />
       <div className="max-w-2xl mx-auto text-center animate-fade-in">
         {/* Welcome Message */}
         <h1 className="text-6xl md:text-7xl font-script text-primary mb-8">
@@ -36,9 +38,9 @@ const Welcome = () => {
         
         {/* Decorative Hearts */}
         <div className="flex justify-center gap-4 mb-12">
-          <Heart className="w-8 h-8 text-accent animate-pulse" fill="currentColor" />
-          <Heart className="w-10 h-10 text-primary animate-pulse" fill="currentColor" style={{ animationDelay: '0.2s' }} />
-          <Heart className="w-8 h-8 text-accent animate-pulse" fill="currentColor" style={{ animationDelay: '0.4s' }} />
+          <TwoHeartsIcon className="w-10 h-10 animate-float" />
+          <HeartIcon face className="w-16 h-16 animate-heartbeat" />
+          <TwoHeartsIcon className="w-10 h-10 animate-float-delayed" />
         </div>
 
         {/* Enter Button */}
@@ -46,13 +48,13 @@ const Welcome = () => {
           size="lg"
           onClick={() => navigate('/anniversary')}
           onMouseEnter={handleButtonHover}
-          className="text-lg px-8 py-6 elegant-transition hover:scale-105"
+          className="text-lg px-8 py-6 rounded-full romantic-shadow elegant-transition hover:scale-105"
           style={{
             transform: `translate(${position.x}px, ${position.y}px)`,
             transition: canClick ? 'transform 0.3s ease' : 'transform 0.2s ease',
           }}
         >
-          <Heart className="w-5 h-5 mr-2" />
+          <HeartIcon className="w-6 h-6 mr-2" />
           Entra
         </Button>
       </div>
